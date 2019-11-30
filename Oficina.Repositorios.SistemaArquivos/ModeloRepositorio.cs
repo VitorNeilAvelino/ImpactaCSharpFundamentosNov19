@@ -1,18 +1,18 @@
 ﻿using Oficina.Dominio;
 using System;
 using System.Collections.Generic;
-using System.Configuration;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml.Linq;
 
 namespace Oficina.Repositorios.SistemaArquivos
 {
-    public class ModeloRepositorio
+    public class ModeloRepositorio : RepositorioBase
     {
-        private XDocument arquivoXml = XDocument.Load(
-            ConfigurationManager.AppSettings["caminhoArquivoModelo"]);
+        private XDocument arquivoXml;
+
+        public ModeloRepositorio() : base("caminhoArquivoModelo")
+        {
+            arquivoXml = XDocument.Load(CaminhoArquivo);
+        }
 
         public List<Modelo> ObterPorMarca(int marcaId)
         {

@@ -11,10 +11,11 @@ namespace Oficina.Repositorios.SistemaArquivosTests
         [TestMethod]
         public void InserirTeste()
         {
-            var veiculo = new Veiculo();
+            var veiculo = new VeiculoPasseio();
 
             veiculo.Ano = 2014;
             veiculo.Cambio = Cambio.Manual;
+            veiculo.Carroceria = Carroceria.Hatch;
             veiculo.Combustivel = Combustivel.Flex;
             veiculo.Observacao = "Completinho";
             veiculo.Placa = "ABC1234";
