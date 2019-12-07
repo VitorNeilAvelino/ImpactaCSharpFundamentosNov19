@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -64,12 +65,32 @@ namespace Oficina.WindowsForms
 
         private void gravarButton_Click(object sender, EventArgs e)
         {
-            if (Formulario.Validar(this, veiculoErrorProvider))
+            try
             {
-                GravarVeiculo();
-                MessageBox.Show("Veículo gravado com sucesso!");
-                Formulario.Limpar(this);
-                placaMaskedTextBox.Focus();
+                if (Formulario.Validar(this, veiculoErrorProvider))
+                {
+                    GravarVeiculo();
+                    MessageBox.Show("Veículo gravado com sucesso!");
+                    Formulario.Limpar(this);
+                    placaMaskedTextBox.Focus();
+                }
+            }
+            catch (FileNotFoundException excecao)
+            {
+                MessageBox.Show($"O arquivo {excecao.FileName} não foi encontrado.");
+            }
+            catch (UnauthorizedAccessException)
+            {
+                MessageBox.Show("O arquivo Veiculo.xml está com o atributo Somente Leitura.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Eita! Algo deu errado e em breve teremos uma solução."/* + ex.Message*/);
+                //Logar(ex); - log4Net
+            }
+            finally
+            {
+                // É executado sempre! Mesmo que haja algum return no código.
             }
         }
 
@@ -81,7 +102,7 @@ namespace Oficina.WindowsForms
             veiculo.Cambio = (Cambio)cambioComboBox.SelectedItem;
             veiculo.Carroceria = Carroceria.Hatch;
             veiculo.Combustivel = (Combustivel)combustivelComboBox.SelectedItem;
-            veiculo.Cor =(Cor)corComboBox.SelectedItem;
+            veiculo.Cor = (Cor)corComboBox.SelectedItem;
             veiculo.Modelo = (Modelo)modeloComboBox.SelectedItem;
             veiculo.Observacao = observacaoTextBox.Text;
             veiculo.Placa = placaMaskedTextBox.Text/*.ToUpper()*/;
