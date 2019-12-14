@@ -17,12 +17,39 @@ namespace Oficina.Repositorios.SqlServer
 
         public void Apagar(int id)
         {
-            throw new NotImplementedException();
+            using (var conexao = new SqlConnection(stringConexao))
+            {
+                conexao.Open();
+
+                const string nomeProcedure = "CorApagar";
+
+                using (var comando = new SqlCommand(nomeProcedure, conexao))
+                {
+                    comando.CommandType = CommandType.StoredProcedure;
+                    comando.Parameters.AddWithValue("@id", id);
+
+                    comando.ExecuteNonQuery();
+                }
+            }
         }
 
         public void Atualizar(Cor cor)
         {
-            throw new NotImplementedException();
+            using (var conexao = new SqlConnection(stringConexao))
+            {
+                conexao.Open();
+
+                const string nomeProcedure = "CorAtualizar";
+
+                using (var comando = new SqlCommand(nomeProcedure, conexao))
+                {
+                    comando.CommandType = CommandType.StoredProcedure;
+                    comando.Parameters.AddWithValue("@id", cor.Id);
+                    comando.Parameters.AddWithValue("@nome", cor.Nome);
+
+                    comando.ExecuteNonQuery();
+                }
+            }
         }
 
         public List<Cor> Ler()
@@ -93,9 +120,22 @@ namespace Oficina.Repositorios.SqlServer
             return cor;
         }
 
-        public void Salvar(Cor cor)
+        public int Salvar(Cor cor)
         {
-            
+            using (var conexao = new SqlConnection(stringConexao))
+            {
+                conexao.Open();
+
+                const string nomeProcedure = "CorSalvar";
+
+                using (var comando = new SqlCommand(nomeProcedure, conexao))
+                {
+                    comando.CommandType = CommandType.StoredProcedure;
+                    comando.Parameters.AddWithValue("@nome", cor.Nome);
+
+                    return (int)comando.ExecuteScalar();
+                }
+            }
         }
     }
 }

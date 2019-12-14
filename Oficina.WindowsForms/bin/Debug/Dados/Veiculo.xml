@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<veiculos>
+  <Veiculo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <Placa>ABC1234</Placa>
+    <Ano>2014</Ano>
+    <Cor>
+      <Id>1</Id>
+      <Nome>Preto</Nome>
+    </Cor>
+    <Observacao>Completinho</Observacao>
+    <Modelo>
+      <Id>1</Id>
+      <Nome>Argo</Nome>
+      <Marca>
+        <Id>1</Id>
+        <Nome>Fiat</Nome>
+      </Marca>
+    </Modelo>
+    <Cambio>Manual</Cambio>
+    <Combustivel>Flex</Combustivel>
+  </Veiculo>
+  <Veiculo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <Placa>ABC1234</Placa>
+    <Ano>2014</Ano>
+    <Cor>
+      <Id>1</Id>
+      <Nome>Preto</Nome>
+    </Cor>
+    <Observacao>1300</Observacao>
+    <Modelo>
+      <Id>1</Id>
+      <Nome>Argo</Nome>
+      <Marca>
+        <Id>1</Id>
+        <Nome>Fiat</Nome>
+      </Marca>
+    </Modelo>
+    <Cambio>Manual</Cambio>
+    <Combustivel>Alcool</Combustivel>
+  </Veiculo>
+  <VeiculoPasseio xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <Placa>SDF4654</Placa>
+    <Ano>2020</Ano>
+    <Cor>
+      <Id>1</Id>
+      <Nome>Preto</Nome>
+    </Cor>
+    <Observacao>1111</Observacao>
+    <Modelo>
+      <Id>1</Id>
+      <Nome>Argo</Nome>
+      <Marca>
+        <Id>1</Id>
+        <Nome>Fiat</Nome>
+      </Marca>
+    </Modelo>
+    <Cambio>Manual</Cambio>
+    <Combustivel>Alcool</Combustivel>
+    <Carroceria>Hatch</Carroceria>
+  </VeiculoPasseio>
+  <VeiculoPasseio xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <Placa>SLK2146</Placa>
+    <Ano>2001</Ano>
+    <Cor>
+      <Id>2</Id>
+      <Nome>Amarelo</Nome>
+    </Cor>
+    <Observacao>1136</Observacao>
+    <Modelo>
+      <Id>2</Id>
+      <Nome>Onix</Nome>
+      <Marca>
+        <Id>2</Id>
+        <Nome>GM</Nome>
+      </Marca>
+    </Modelo>
+    <Cambio>Automatico</Cambio>
+    <Combustivel>Gasolina</Combustivel>
+    <Carroceria>Hatch</Carroceria>
+  </VeiculoPasseio>
+</veiculos>
